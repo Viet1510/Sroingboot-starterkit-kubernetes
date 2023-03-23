@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-starterkit-deployments
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-starterkit-deployments
+  template:
+    metadata:
+      labels:
+        app: springboot-starterkit-deployments
+    spec:
+      containers:
+        - name: springboot-starterkit-deployments
+          image: ngtviet2/springboot-starterkit:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8077
+      restartPolicy: Always
